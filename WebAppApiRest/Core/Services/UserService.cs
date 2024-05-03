@@ -32,7 +32,11 @@ namespace WebAppApiRest.Core.Services
             int userId = id.Value;
             var userExist = await FindUser(userId);
             ArgumentNullException.ThrowIfNull(userExist);
-            return await _userRepository.Update(user);
+            userExist.Username = user.Username;
+            userExist.Password = user.Password;
+            userExist.Email = user.Email;
+            userExist.IsActive = user.IsActive;
+            return await _userRepository.Update(userExist);
         }
 
         public async Task<bool> DeleteUser(int? id)
