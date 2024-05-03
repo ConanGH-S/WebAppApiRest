@@ -10,7 +10,7 @@ namespace WebAppApiRest.Users.Data
 
         public async Task<List<User>> ListAll()
         {
-            return await _context.Users.Where(u => !u.IsActive).ToListAsync();
+            return await _context.Users.Where(u => u.IsActive).ToListAsync();
         }
 
         public async Task<User?> Find(int id)
@@ -34,7 +34,7 @@ namespace WebAppApiRest.Users.Data
 
         public async Task<bool> Delete(User user)
         {
-            user.IsActive = true;
+            user.IsActive = false;
             await _context.SaveChangesAsync();
             return true;
         }

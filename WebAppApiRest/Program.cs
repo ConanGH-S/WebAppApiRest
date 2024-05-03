@@ -1,5 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using WebAppApiRest.Core.Data;
+using WebAppApiRest.Core.Interfaces;
+using WebAppApiRest.Core.Services;
+using WebAppApiRest.Users.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +16,9 @@ var connectionDb = builder.Configuration.GetConnectionString("dbConn");
 builder.Services.AddDbContext<ApiDbContext>(options =>
     options.UseSqlite(connectionDb)
 );
+
+builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
 
 var app = builder.Build();
 
