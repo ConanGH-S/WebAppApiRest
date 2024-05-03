@@ -10,7 +10,7 @@ using WebAppApiRest.Core.Data;
 namespace WebAppApiRest.Migrations
 {
     [DbContext(typeof(ApiDbContext))]
-    [Migration("20240503005242_init")]
+    [Migration("20240503215422_init")]
     partial class init
     {
         /// <inheritdoc />

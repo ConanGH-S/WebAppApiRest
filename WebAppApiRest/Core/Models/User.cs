@@ -6,6 +6,6 @@
         public required string Username { get; set; }
         public required string Email { get; set; }
         public required string Password { get; set; }
-        public required string CreatedAt { get; set; }
+        public required bool IsActive { get; set; } = true;
     }
 }
